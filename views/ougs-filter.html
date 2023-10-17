@@ -1,0 +1,20 @@
+<div ng-if="model.orgUnitGroupSets.length > 0">
+    <hr>
+    <div ng-repeat="ougs in model.orgUnitGroupSets" ng-if="model.orgUnitGroupSets.length > 0">
+        <div class="row small-vertical-spacing">
+            <div class="col-sm-3">
+                {{ougs.displayName}}
+            </div>
+            <div class="col-sm-9">
+                <ui-select multiple
+                           ng-model="ougs.selectedOptions"
+                           style="width:100%;">
+                    <ui-select-match placeholder="{{'all'| translate}}">{{$item.displayName}}</ui-select-match>
+                    <ui-select-choices  repeat="option as option in ougs.organisationUnitGroups | filter: $select.search | limitTo:maxOptionSize">
+                        <span ng-bind-html="option.displayName | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+</div>

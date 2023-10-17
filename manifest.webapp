@@ -1,0 +1,21 @@
+{
+    "version": "0.1",
+    "name": "LQAS Data Accucary Check",
+    "description": "Data value accuracy check based on LQAS",
+    "launch_path": "index.html",
+    "icons": {
+        "48": "img/dhis-web-lqas.png"
+    },
+    "appType": "APP",
+    "short_name": "LQAS",
+    "developer": {
+        "name": "HABTech",
+        "url": "https://habtechsolution.com"
+    },
+    "default_locale": "en",
+    "activities": {
+        "dhis": {
+            "href": ".."
+        }
+    }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html ng-app='lqas'>
+    <head>
+        <title>DHIS2 LQAS App</title>
+        <meta name="description" content="DHIS 2">
+        <meta name="keywords" content="DHIS 2">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <link type="text/css" rel="stylesheet" href="vendor/dhis/light_blue/light_blue-b332a6918f.css" />
+        <link type="text/css" rel="stylesheet" href="vendor/bootstrap/3.0.2/css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="vendor/jquery.ui/1.11.4/themes/redmond/jquery-ui.css" />
+        <link type="text/css" rel="stylesheet" href="vendor/jquery.calendars.package-1.2.1/ui-redmond.calendars.picker.css" />
+        <link type="text/css" rel="stylesheet" media="screen" href="vendor/fontawesome/4.7.0/css/font-awesome.min.css" />
+        <link type="text/css" rel="stylesheet" media="screen" href="vendor/dhis/css/widgets-2318061e45.css" />
+        <link type="text/css" rel="stylesheet" media="print" href="vendor/dhis/css/print-5ebb8063eb.css" />
+        <link type="text/css" rel="stylesheet" media="screen" href="vendor/angular/plugins/select.css" />
+        <link type="text/css" rel="stylesheet" media="screen" href="vendor/angular/plugins/select2.css" />
+
+        <%= htmlWebpackPlugin.options.stylesheets(webpack.hash) %>
+
+        <!--<link type="text/css" rel="stylesheet" href="../api/files/style" />-->
+        
+        <script src="vendor/jquery/3.6.0/dist/jquery.min.js"></script>
+        <script src="vendor/jquery-migrate/3.4.0/dist/jquery-migrate.min.js"></script>
+
+        <script src="vendor/jquery-ui/1.13.2/ui/widget.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/widgets/mouse.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/position.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/data.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/disable-selection.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/keycode.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/scroll-parent.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/unique-id.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/plugin.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/safe-active-element.js"></script>
+
+        <script src="vendor/jquery-ui/1.13.2/ui/widgets/autocomplete.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/widgets/menu.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/widgets/selectmenu.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/widgets/sortable.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/widgets/droppable.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/widgets/draggable.js"></script>
+        
+        <script src="vendor/jquery-ui/1.13.2/ui/effect.js"></script>
+        <script src="vendor/jquery-ui/1.13.2/ui/effects/effect-slide.js"></script>
+
+        <script src="vendor/jquery-plugin/jquery-719d66b53f.plugin.min.js"></script>
+        <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.min.js"></script>
+        <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.picker.min.js"></script>
+        <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.plus.min.js"></script>
+        <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.picker.ext.js"></script>
+
+        <!-- The following array should be manually kept in sync with the one in `CalendarService` -->
+        <% const supportedCalendarLocales = ['ar', 'ar-EG', 'zh-CN', 'cs', 'da', 'nl', 'fr', 'km', 'lo', 'nb', 'pt-BR', 'ro', 'ru', 'es', 'sv', 'uk', 'ur', 'vi']; %>
+        <% supportedCalendarLocales.forEach(locale => { %>
+            <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars-<%= locale %>.js"></script>
+            <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.picker-<%= locale %>.js"></script>
+        <% }); %>
+
+        <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.coptic.min.js"></script>
+        <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.ethiopian.min.js"></script>
+        <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.islamic.min.js"></script>
+        <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.julian.min.js"></script>
+        <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.nepali.min.js"></script>
+        <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.thai.min.js"></script>
+        <script src="vendor/jquery.calendars.package-1.2.1/jquery.calendars.persian.min.js"></script>
+        
+        <script src="vendor/select2/3.4.5/select2.min.js"></script>
+        <script src="vendor/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+        <script src="vendor/angular/angular.js"></script>
+        <script src="vendor/angular/angular-resource.js"></script>
+        <script src="vendor/angular/angular-route.js"></script>
+        <script src="vendor/angular/angular-cookies.js"></script>
+        <script src="vendor/angular/angular-animate.js"></script>
+        <script src="vendor/angular/angular-messages.js"></script>
+        <script src="vendor/angular/angular-sanitize.js"></script>
+        <script src="vendor/angular/ui-bootstrap.js"></script>
+        <script src="vendor/angular/plugins/select.js"></script>
+        <script src="vendor/angular/plugins/select2.js"></script>
+        <script src="vendor/angular/plugins/angularLocalStorage.js"></script>
+        <script src="vendor/angular/plugins/angular-translate.min.js"></script>
+
+        <script src="vendor/momentjs/2.5.0/moment-with-langs.min.js"></script>
+
+        <script src="vendor/dhis/dhis2-util-fa6d031b83.js"></script>
+        <script src="vendor/dhis/commons-147b38397f.js"></script>
+        <script src="vendor/dhis/commons-ajax-e9bf10487b.js"></script>
+        <script src="vendor/dhis/dhis2-availability-2831338dba.js"></script>
+        <script src="vendor/dhis/dhis2-trigger-792850e798.js"></script>
+        <script src="vendor/dhis/lists-6f427f0f11.js"></script>
+        <script src="vendor/dhis/periodTypeNoDep-5809fc740b.js"></script>
+        <script src="vendor/dhis/dhis2-validation-29192e93f8.js"></script>
+        <script src="vendor/dhis/dhis2-period-ce7b1fc4ce.js"></script>
+        <script src="vendor/dhis/dhis2-storage-ss-6da08511fb.js"></script>
+        <script src="vendor/dhis/dhis2-storage-ls-1b9f647ef2.js"></script>
+        <script src="vendor/dhis/dhis2-storage-idb-e5bdf19229.js"></script>
+        <script src="vendor/dhis/dhis2-storage-memory-992eeb1c0e.js"></script>
+        <script src="vendor/dhis/dhis2-storage-04afdd4f4c.js"></script>
+        <script src="vendor/dhis/dhis2-contextmenu-67ed866cc1.js"></script>
+
+        <script src="vendor/oust/oust.js"></script>
+
+        <script src="vendor/react/15.3.2/react-with-touch-tap-plugin.min.js"></script>
+        <script src="vendor/rxjs/4.1.0/rx.lite.min.js"></script>
+        <script src="vendor/lodash/4.15.0/lodash.min.js"></script>
+        <script src="vendor/lodash-functional/1.0.1/lodash-functional.js"></script>
+        <script src="vendor/babel-polyfill/6.20.0/dist/polyfill.min.js"></script>
+        <script src="vendor/d2-ui/28.0.3/dist/header-bar.js"></script>
+        
+        <!--<script>
+            // Needs to be wrapped in jQuery to be sure the DOM is parsed as the script is not at the bottom.
+            jQuery(function () {
+                Dhis2HeaderBar.initHeaderBar(document.querySelector('#header'), '../api', { noLoadingIndicator: true });
+            });
+        </script>-->
+        
+        <%= htmlWebpackPlugin.options.scripts(webpack.hash) %>
+
+        <!--<script src="../api/files/script"></script>-->
+
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="headerMessage"></div>
+
+        <div ng-view></div>
+
+    </body>
+</html>
